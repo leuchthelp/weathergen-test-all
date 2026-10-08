@@ -4,7 +4,7 @@ import numpy as np
 
 
 def main() -> None:
-    TEST = [True for _ in range(10000)]
+    TEST = np.array([i %2 > 0 for i in range(10000)])
 
     tmp = TEST[:10]
     print(
@@ -13,7 +13,7 @@ def main() -> None:
     )
     print(
         f"For list of {len(tmp)} bool - np.array().all(): ",
-        timeit.timeit(lambda: np.array(tmp).all()),
+        timeit.timeit(lambda: tmp.all()),
     )
     print(
         f"For list of {len(tmp)} bool - np.all(): ",
@@ -27,7 +27,7 @@ def main() -> None:
     )
     print(
         f"For list of {len(tmp)} bool - np.array().all(): ",
-        timeit.timeit(lambda: np.array(tmp).all()),
+        timeit.timeit(lambda: tmp.all()),
     )
     print(
         f"For list of {len(tmp)} bool - np.all(): ",
@@ -41,7 +41,7 @@ def main() -> None:
     )
     print(
         f"For list of {len(tmp)} bool - np.array().all(): ",
-        timeit.timeit(lambda: np.array(tmp).all()),
+        timeit.timeit(lambda: tmp.all()),
     )
     print(
         f"For list of {len(tmp)} bool - np.all(): ",
@@ -55,7 +55,7 @@ def main() -> None:
     )
     print(
         f"For list of {len(tmp)} bool - np.array().all(): ",
-        timeit.timeit(lambda: np.array(tmp).all()),
+        timeit.timeit(lambda: tmp.all()),
     )
     print(
         f"For list of {len(tmp)} bool - np.all(): ",
