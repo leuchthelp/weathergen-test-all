@@ -4,60 +4,58 @@ import numpy as np
 
 
 def main() -> None:
-    TEST = np.array([i %2 > 0 for i in range(10000)])
-
-    tmp = TEST[:10]
+    n = 10
     print(
-        f"For list of {len(tmp)} bool - buildin all(): ",
-        timeit.timeit(lambda: all(tmp)),
+        f"For list of {n} bool - buildin all(): ",
+        timeit.timeit(lambda: all(True for i in range(n))),
     )
     print(
-        f"For list of {len(tmp)} bool - np.array().all(): ",
-        timeit.timeit(lambda: tmp.all()),
+        f"For list of {n} bool - np.array().all(): ",
+        timeit.timeit(lambda: np.array(True for i in range(n)).all()),
     )
     print(
-        f"For list of {len(tmp)} bool - np.all(): ",
-        timeit.timeit(lambda: np.all(tmp)),
+        f"For list of {n} bool - np.all(): ",
+        timeit.timeit(lambda: np.all(np.array(True for i in range(n)))),
     )
 
-    tmp = TEST[:100]
+    n = 100
     print(
-        f"For list of {len(tmp)} bool - buildin all(): ",
-        timeit.timeit(lambda: all(tmp)),
+        f"For list of {n} bool - buildin all(): ",
+        timeit.timeit(lambda: all(True for i in range(n))),
     )
     print(
-        f"For list of {len(tmp)} bool - np.array().all(): ",
-        timeit.timeit(lambda: tmp.all()),
+        f"For list of {n} bool - np.array().all(): ",
+        timeit.timeit(lambda: np.array(True for i in range(n)).all()),
     )
     print(
-        f"For list of {len(tmp)} bool - np.all(): ",
-        timeit.timeit(lambda: np.all(tmp)),
-    )
-
-    tmp = TEST[:1000]
-    print(
-        f"For list of {len(tmp)} bool - buildin all(): ",
-        timeit.timeit(lambda: all(tmp)),
-    )
-    print(
-        f"For list of {len(tmp)} bool - np.array().all(): ",
-        timeit.timeit(lambda: tmp.all()),
-    )
-    print(
-        f"For list of {len(tmp)} bool - np.all(): ",
-        timeit.timeit(lambda: np.all(tmp)),
+        f"For list of {n} bool - np.all(): ",
+        timeit.timeit(lambda: np.all(np.array(True for i in range(n)))),
     )
 
-    tmp = TEST
+    n = 1000
     print(
-        f"For list of {len(tmp)} bool - buildin all(): ",
-        timeit.timeit(lambda: all(tmp)),
+        f"For list of {n} bool - buildin all(): ",
+        timeit.timeit(lambda: all(True for i in range(n))),
     )
     print(
-        f"For list of {len(tmp)} bool - np.array().all(): ",
-        timeit.timeit(lambda: tmp.all()),
+        f"For list of {n} bool - np.array().all(): ",
+        timeit.timeit(lambda: np.array(True for i in range(n)).all()),
     )
     print(
-        f"For list of {len(tmp)} bool - np.all(): ",
-        timeit.timeit(lambda: np.all(tmp)),
+        f"For list of {n} bool - np.all(): ",
+        timeit.timeit(lambda: np.all(np.array(True for i in range(n)))),
+    )
+
+    n = 10000
+    print(
+        f"For list of {n} bool - buildin all(): ",
+        timeit.timeit(lambda: all(True for i in range(n))),
+    )
+    print(
+        f"For list of {n} bool - np.array().all(): ",
+        timeit.timeit(lambda: np.array(True for i in range(n)).all()),
+    )
+    print(
+        f"For list of {n} bool - np.all(): ",
+        timeit.timeit(lambda: np.all(np.array(True for i in range(n)))),
     )
