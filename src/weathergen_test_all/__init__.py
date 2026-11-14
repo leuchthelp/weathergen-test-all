@@ -68,9 +68,6 @@ def main() -> None:
         }
         templates.append(template)
 
-    for template in templates:
-        logger.info(printable(template))
-
     pool = ProcessPool()
     for out in pool.imap(printable, templates):
         logger.info(out)
