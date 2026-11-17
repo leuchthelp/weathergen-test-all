@@ -42,13 +42,15 @@ def main() -> None:
     templates: list[Template] = []
     # Pre_gens as list
     for n in ns:
-        pre_gen = [True for i in range(n)]
+        pre_gen1 = [True for i in range(n)]
+        pre_gen2 = [True for i in range(n)]
+        pre_gen3 = [True for i in range(n)]
 
         template: Template = {
             "n": n,
             "ctx": "pre_gen as list - buildin all(...)",
             "func": pre_gen_list_all,
-            "pre_gen": pre_gen,
+            "pre_gen": pre_gen1,
         }
         templates.append(template)
 
@@ -56,7 +58,7 @@ def main() -> None:
             "n": n,
             "ctx": "pre_gen as list - np.array(...).all()",
             "func": pre_gen_list_numpy_all,
-            "pre_gen": pre_gen,
+            "pre_gen": pre_gen2,
         }
         templates.append(template)
 
@@ -64,7 +66,7 @@ def main() -> None:
             "n": n,
             "ctx": "pre_gen as list - np.all(np.array(...))",
             "func": pre_gen_list_all_numpy_on_array,
-            "pre_gen": pre_gen,
+            "pre_gen": pre_gen3,
         }
         templates.append(template)
 
@@ -75,13 +77,15 @@ def main() -> None:
     templates = []
     # Pre_gens as generator (generator cannot be pickled)
     for n in ns:
-        pre_gen = (True for i in range(n))
+        pre_gen1 = (True for i in range(n))
+        pre_gen2 = (True for i in range(n))
+        pre_gen3 = (True for i in range(n))
 
         template: Template = {
             "n": n,
             "ctx": "pre_gen as generator - buildin all(...)",
             "func": pre_gen_list_all,
-            "pre_gen": pre_gen,
+            "pre_gen": pre_gen1,
         }
         templates.append(template)
 
@@ -89,7 +93,7 @@ def main() -> None:
             "n": n,
             "ctx": "pre_gen as generator - np.array(...).all()",
             "func": pre_gen_list_numpy_all,
-            "pre_gen": pre_gen,
+            "pre_gen": pre_gen2,
         }
         templates.append(template)
 
@@ -97,7 +101,7 @@ def main() -> None:
             "n": n,
             "ctx": "pre_gen as generator - np.all(np.array(...))",
             "func": pre_gen_list_all_numpy_on_array,
-            "pre_gen": pre_gen,
+            "pre_gen": pre_gen3,
         }
         templates.append(template)
 
